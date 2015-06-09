@@ -4,10 +4,10 @@ This is a basic form validation class based on Laravel's much superior validatio
 
 ## Installation
 
-The easier way to use this class is through composer. In a terminal, run the following:
+The easiest way to use this class is through composer. In a terminal, run the following:
 
 ````
-composer require kkiernan/vadlidator
+composer require kkiernan/validator
 ````
 
 If you aren't using composer, download the source and require the validator file in your project. Note that the class exists in the Kiernan namespace. You can import the class like follows:
