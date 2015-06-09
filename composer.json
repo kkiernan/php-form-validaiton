@@ -1,0 +1,13 @@
+{
+	"config": {
+		"bin-dir": ""
+	},
+	"autoload": {
+		"psr-4": {
+			"Kiernan\\": "src/Kiernan"
+		}
+	},
+	"require-dev": {
+		"phpspec/phpspec": "^2.2"
+	}
+}
