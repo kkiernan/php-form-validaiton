@@ -1,13 +1,23 @@
 {
-	"config": {
+    "name": "kkiernan/validator",
+    "license": "MIT",
+    "description": "A basic form validation class for PHP.",
+    "authors": [
+        {
+            "name": "Kelly Kiernan",
+            "email": "kelly@kellykiernan.com"
+        }
+    ],
+    "require": {},
+	"require-dev": {
+		"phpspec/phpspec": "^2.2"
+	},
+    "config": {
 		"bin-dir": ""
 	},
 	"autoload": {
 		"psr-4": {
 			"Kiernan\\": "src/Kiernan"
 		}
-	},
-	"require-dev": {
-		"phpspec/phpspec": "^2.2"
 	}
 }
