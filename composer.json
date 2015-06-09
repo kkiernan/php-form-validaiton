@@ -1,7 +1,7 @@
 {
     "name": "kkiernan/validator",
     "license": "MIT",
-    "description": "A basic form validation class for PHP.",
+    "description": "A basic form validation class",
     "authors": [
         {
             "name": "Kelly Kiernan",
