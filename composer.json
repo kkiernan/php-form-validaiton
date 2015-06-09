@@ -1,5 +1,6 @@
 {
     "name": "kkiernan/validator",
+    "version": "1.0.0",
     "tags": "1.0.0",
     "license": "MIT",
     "description": "A basic form validation class for PHP.",
