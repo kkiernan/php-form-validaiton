@@ -117,10 +117,35 @@ class Validator {
 
 		$value = $this->getValue($attribute);
 
-		if ( ! $this->$method($attribute, $value))
+		$validatable = $this->isValidatable($rule, $attribute, $value);
+
+		if ($validatable && ! $this->$method($attribute, $value))
 		{
 			$this->messages[] = $this->getError($rule, $attribute);
 		}
+	}
+
+	/**
+	 * Determine if a validation rule should be run. The rule only needs to
+	 * be run if the rule is 'required' or if the value is not empty.
+	 * 
+	 * @param  string  $rule
+	 * @param  string  $attribute
+	 * @param  string  $value
+	 * @return boolean
+	 */
+	protected function isValidatable($rule, $attribute, $value)
+	{
+		if ($rule === 'required')
+		{
+			return true;
+		}
+		else if ( ! empty($value))
+		{
+			return true;
+		}
+
+		return false;
 	}
 
 	/**

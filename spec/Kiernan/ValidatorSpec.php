@@ -31,7 +31,7 @@ class ValidatorSpec extends ObjectBehavior {
 		$this->passes()->shouldBe(true);
 	}
 
-	function it_requires_all_required_attributes()
+	function it_requires_all_required_fields()
 	{
 		$this->beConstructedWith(
 			['name' => 'Kelly'],
@@ -43,7 +43,7 @@ class ValidatorSpec extends ObjectBehavior {
 		$this->messages()->shouldBe(['The email field is required.']);
 	}
 
-	function it_does_not_allow_empty_strings_for_required_attributes()
+	function it_does_not_allow_empty_strings_for_required_fields()
 	{
 		$this->beConstructedWith(
 			['name' => '   '],
@@ -55,7 +55,7 @@ class ValidatorSpec extends ObjectBehavior {
 		$this->messages()->shouldBe(['The name field is required.']);
 	}
 
-	function it_does_not_allow_null_values_for_required_attributes()
+	function it_does_not_allow_null_values_for_required_fields()
 	{
 		$this->beConstructedWith(
 			['name' => null],
@@ -170,6 +170,16 @@ class ValidatorSpec extends ObjectBehavior {
 		$this->beConstructedWith(
 			['email' => 'kelly@kellykiernan.com'],
 			['email' => 'required|email']
+		);
+
+		$this->passes()->shouldBe(true);
+	}
+
+	function it_does_not_required_optional_fields()
+	{
+		$this->beConstructedWith(
+			[],
+			['email' => 'email']
 		);
 
 		$this->passes()->shouldBe(true);
