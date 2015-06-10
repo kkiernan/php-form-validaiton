@@ -89,7 +89,7 @@ class Validator {
 	}
 
 	/**
-	 * Organize the rules as a nested array.
+	 * Structure the rules as a nested array.
 	 * 
 	 * @param  array $rules
 	 * @return void
@@ -105,7 +105,7 @@ class Validator {
 	}
 
 	/**
-	 * Call the appropriate validation method for the given attribute.
+	 * Call the appropriate validation method if it is validatable.
 	 * 
 	 * @param  string $attribute
 	 * @param  string $rule
@@ -127,7 +127,7 @@ class Validator {
 
 	/**
 	 * Determine if a validation rule should be run. The rule only needs to
-	 * be run if the rule is 'required' or if the value is not empty.
+	 * be run if the rule is 'required' or if a value was entered.
 	 * 
 	 * @param  string  $rule
 	 * @param  string  $attribute
@@ -136,11 +136,7 @@ class Validator {
 	 */
 	protected function isValidatable($rule, $attribute, $value)
 	{
-		if ($rule === 'required')
-		{
-			return true;
-		}
-		else if ( ! empty($value))
+		if ($rule === 'required' || ! empty($value))
 		{
 			return true;
 		}

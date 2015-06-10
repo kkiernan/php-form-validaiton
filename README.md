@@ -50,3 +50,11 @@ If validation has failed, you can retrieve the error messages by calling `Valida
 ```
 print_r($validation->messages());
 ```
+
+## Available Validation Rules
+
+- boolean
+- email
+- ip
+- required
+- url
