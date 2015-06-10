@@ -55,7 +55,7 @@ print_r($validator->messages());
 - boolean
 - email
 - float
-- int
+- integer
 - ip
 - required
 - url
