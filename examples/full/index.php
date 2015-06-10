@@ -34,9 +34,6 @@ Session::create();
 
 			<?php if (Session::has('errors')): ?>
 				<ul class="list-unstyled alert alert-danger">
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
 					<?php foreach (Session::get('errors') as $error): ?>
 						<li><?php echo $error; ?></li>
 					<?php endforeach; ?>
@@ -76,6 +73,18 @@ Session::create();
 				<div class="form-group">
 					<label for="name">Age</label>
 					<input type="text" name="age" class="form-control" value="<?php echo Session::old('age') ?>" placeholder="Enter your age">
+				</div>
+
+				<div class="radio">
+					<label>
+						<input type="radio" name="is_admin" value="1" <?php echo Session::old('is_admin') === '1' ? 'checked' : '' ?>> This user is an admin
+					</label>
+				</div>
+
+				<div class="radio">
+					<label>
+						<input type="radio" name="is_admin" value="0" <?php echo Session::old('is_admin') === '0' ? 'checked' : '' ?>> This user is a staff member
+					</label>
 				</div>
 
 				<div class="form-group">
