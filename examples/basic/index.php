@@ -2,7 +2,7 @@
 
 use Kiernan\Validator;
 
-require '../vendor/autoload.php';
+require '../src/Kiernan/Validator.php';
 
 $validator = new Validator(
 	[
@@ -22,6 +22,7 @@ $validator = new Validator(
 if ($validator->fails())
 {
 	print_r($validator->messages());
+
 	exit;
 }
 
