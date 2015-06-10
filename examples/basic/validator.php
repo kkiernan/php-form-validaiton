@@ -2,7 +2,7 @@
 
 use Kiernan\Validator;
 
-require '../src/Kiernan/Validator.php';
+require '../../src/Kiernan/Validator.php';
 
 $validator = new Validator(
 	[

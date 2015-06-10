@@ -1,5 +1,7 @@
 <?php namespace Kiernan;
 
+use BadMethodCallException;
+
 class Session {
 
 	/**
@@ -89,6 +91,11 @@ class Session {
 	 */
 	public static function get($key)
 	{
+		if ( ! self::has($key))
+		{
+			return null;
+		}
+
 		return $_SESSION['kiernan_session'][$key];
 	}
 
@@ -100,6 +107,30 @@ class Session {
 	public static function clear()
 	{
 		$_SESSION['kiernan_session'] = [];
+	}
+
+	/**
+	 * Throw an exception if an undefined method is called.
+	 * 
+	 * @param  string $name
+	 * @param  array $arguments
+	 * @return void
+	 */
+	public function __call($name, $arguments)
+	{
+		throw new BadMethodCallException("Method [$name] does not exist");
+	}
+
+	/**
+	 * Throw an exception if an undefined method is called from a static context.
+	 * 
+	 * @param  string $name
+	 * @param  array $arguments
+	 * @return void
+	 */
+	public static function __callStatic($name, $arguments)
+	{
+		throw new BadMethodCallException("Method [$name] does not exist");
 	}
 
 }
