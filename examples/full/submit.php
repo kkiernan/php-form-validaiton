@@ -3,8 +3,8 @@
 use Kiernan\Validator;
 use Kiernan\Session;
 
-require '../src/Kiernan/Validator.php';
-require '../src/Kiernan/Session.php';
+require '../../src/Kiernan/Validator.php';
+require '../../src/Kiernan/Session.php';
 
 Session::create();
 
