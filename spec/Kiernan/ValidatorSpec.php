@@ -185,6 +185,50 @@ class ValidatorSpec extends ObjectBehavior {
 		$this->passes()->shouldBe(true);
 	}
 
+	function it_validates_a_float()
+	{
+		$this->beConstructedWith(
+			['pi' => 3.14],
+			['pi' => 'float']
+		);
+
+		$this->passes()->shouldBe(true);
+	}
+
+	function it_does_not_allow_invalid_floats()
+	{
+		$this->beConstructedWith(
+			['pi' => 'not even a number...'],
+			['pi' => 'float']
+		);
+
+		$this->passes()->shouldBe(false);
+
+		$this->messages()->shouldBe(['The pi field must be a float.']);
+	}
+
+	function it_validates_an_integer()
+	{
+		$this->beConstructedWith(
+			['age' => 26],
+			['age' => 'integer']
+		);
+
+		$this->passes()->shouldBe(true);
+	}
+
+	function it_does_not_allow_invalid_integers()
+	{
+		$this->beConstructedWith(
+			['age' => 'not even a number...'],
+			['age' => 'integer']
+		);
+
+		$this->passes()->shouldBe(false);
+
+		$this->messages()->shouldBe(['The age field must be an integer.']);
+	}
+
 	function it_validates()
 	{
 		$this->beConstructedWith(

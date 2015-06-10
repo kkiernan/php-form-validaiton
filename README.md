@@ -4,21 +4,15 @@ This is a basic form validation class based on Laravel's much superior validatio
 
 ## Installation
 
-The easiest way to use this class is through composer. In a terminal, run the following:
+The easiest way to use the class is through composer. In a terminal with composer installed, run the following:
 
 ````
 composer require kkiernan/validator
 ````
 
-If you aren't using composer, download the source and require the validator file in your project. Note that the class exists in the Kiernan namespace. You can import the class like follows:
-
-```
-use Kiernan\Validator;
-```
-
 ## Usage
 
-It is used similar to the way Laravel's basic validation is used. Create a `Kiernan\Validator` instance, passing it your data and validation rules.
+Since I basically am learning from Laravel here, it is used basically the same way. Create a `Kiernan\Validator` instance, passing it your data and validation rules. Add multiple rules to a field using the pipe separator.
 
 ```
 $validator = new Validator(
@@ -37,18 +31,23 @@ $validator = new Validator(
 );
 ```
 
-Once you've created the validator, you can call either the `Validator::fails()` or `Validator::passes()` methods. For example:
+Once you've created the validator instance, you can call either the `Validator::fails()` or `Validator::passes()` methods. For example:
 ```
 if ($validator->fails())
 {
     // Validation has failed
+}
+
+if ($validator->passes())
+{
+	// Validation has passed
 }
 ```
 
 If validation has failed, you can retrieve the error messages by calling `Validator::messages()`.
 
 ```
-print_r($validation->messages());
+print_r($validator->messages());
 ```
 
 ## Available Validation Rules
@@ -58,3 +57,4 @@ print_r($validation->messages());
 - ip
 - required
 - url
+- float

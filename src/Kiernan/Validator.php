@@ -33,6 +33,8 @@ class Validator {
 	protected $errors = [
 		'required' => 'The :attribute field is required.',
 		'boolean' => 'The :attribute field must be true or false.',
+		'integer' => 'The :attribute field must be an integer.',
+		'float' => 'The :attribute field must be a float.',
 		'email' => 'The :attribute field must be an email address.',
 		'url' => 'The :attribute field must be a URL.',
 		'ip' => 'The :attribute field must be an ip address.',
@@ -234,9 +236,33 @@ class Validator {
 	 * @param  string $value
 	 * @return boolean
 	 */
-	protected function validateIp($attribute, $value, $flags = null)
+	protected function validateIp($attribute, $value)
 	{
-		return filter_var($value, FILTER_VALIDATE_IP, $flags) !== false;
+		return filter_var($value, FILTER_VALIDATE_IP) !== false;
+	}
+
+	/**
+	 * Validate that an attribute is a float.
+	 * 
+	 * @param  string $attribute
+	 * @param  string $value
+	 * @return boolean
+	 */
+	protected function validateFloat($attribute, $value)
+	{
+		return filter_var($value, FILTER_VALIDATE_FLOAT) !== false;
+	}
+
+	/**
+	 * Validates an attribute as an integer.
+	 * 
+	 * @param  string $attribute
+	 * @param  string $value
+	 * @return boolean
+	 */
+	protected function validateInteger($attribute, $value)
+	{
+		return filter_var($value, FILTER_VALIDATE_INT) !== false;
 	}
 
 	/**
