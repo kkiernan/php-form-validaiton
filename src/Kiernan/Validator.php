@@ -1,9 +1,11 @@
-<?php namespace Kiernan;
+<?php
+
+namespace Kiernan;
 
 use BadMethodCallException;
 
-class Validator {
-
+class Validator
+{
 	/**
 	 * The data to be validated.
 	 * 
@@ -59,10 +61,8 @@ class Validator {
 	 */
 	public function passes()
 	{
-		foreach ($this->rules as $attribute => $rules)
-		{
-			foreach ($rules as $rule)
-			{
+		foreach ($this->rules as $attribute => $rules) {
+			foreach ($rules as $rule) {
 				$this->validate($attribute, $rule);
 			}
 		}
@@ -98,8 +98,7 @@ class Validator {
 	 */
 	protected function parseRules($rules)
 	{
-		foreach ($rules as &$rule)
-		{
+		foreach ($rules as &$rule) {
 			$rule = explode('|', $rule);
 		}
 
@@ -121,8 +120,7 @@ class Validator {
 
 		$validatable = $this->isValidatable($rule, $attribute, $value);
 
-		if ($validatable && ! $this->$method($attribute, $value))
-		{
+		if ($validatable && ! $this->$method($attribute, $value)) {
 			$this->messages[] = $this->getError($rule, $attribute);
 		}
 	}
@@ -138,8 +136,7 @@ class Validator {
 	 */
 	protected function isValidatable($rule, $attribute, $value)
 	{
-		if ($rule === 'required' || ! empty($value))
-		{
+		if ($rule === 'required' || ! empty($value)) {
 			return true;
 		}
 
@@ -181,12 +178,10 @@ class Validator {
 	 */
 	protected function validateRequired($attribute, $value)
 	{
-		if ( ! array_key_exists($attribute, $this->data))
-		{
+		if ( ! array_key_exists($attribute, $this->data)) {
 			return false;
 		}
-		else if (trim($value) === '')
-		{
+		else if (trim($value) === '') {
 			return false;
 		}
 
@@ -273,8 +268,7 @@ class Validator {
 	 */
 	protected function getValue($attribute)
 	{
-		if ( ! array_key_exists($attribute, $this->data))
-		{
+		if ( ! array_key_exists($attribute, $this->data)) {
 			return null;
 		}
 

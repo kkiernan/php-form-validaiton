@@ -19,10 +19,8 @@ $validator = new Validator(
 	]
 );
 
-if ($validator->fails())
-{
+if ($validator->fails()) {
 	print_r($validator->messages());
-
 	exit;
 }
 

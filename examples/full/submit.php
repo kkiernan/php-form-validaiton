@@ -25,14 +25,10 @@ $validator = new Validator(
 	]
 );
 
-if ($validator->fails())
-{
+if ($validator->fails()) {
 	Session::flash('old', $_POST);
-
 	Session::flash('errors', $validator->messages());
-
 	header('Location: index.php');
-
 	exit;
 }
 

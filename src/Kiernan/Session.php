@@ -1,9 +1,11 @@
-<?php namespace Kiernan;
+<?php
+
+namespace Kiernan;
 
 use BadMethodCallException;
 
-class Session {
-
+class Session
+{
 	/**
 	 * The singletone session instance.
 	 * 
@@ -18,8 +20,7 @@ class Session {
 	 */
 	public static function create()
 	{
-		if ( ! isset(self::$instance))
-		{
+		if (!isset(self::$instance)) {
 			self::$instance = new static();
 		}
 
@@ -31,8 +32,7 @@ class Session {
 	 */
 	private function __construct()
 	{
-		if ( ! session_id())
-		{
+		if (!session_id()) {
 			session_start();
 		}
 	}
@@ -58,14 +58,13 @@ class Session {
 	public static function old($key = null)
 	{
 		// Return all old data.
-		if (isset($_SESSION['kiernan_session']['old']) && $key === null)
-		{
+		if (isset($_SESSION['kiernan_session']['old']) && $key === null) {
 			return $_SESSION['kiernan_session']['old'];
 		}
 
 		// Return only the specific key if it exists in the old data.
-		if (isset($_SESSION['kiernan_session']['old']) && array_key_exists($key, $_SESSION['kiernan_session']['old']))
-		{
+		if (isset($_SESSION['kiernan_session']['old']) &&
+			array_key_exists($key, $_SESSION['kiernan_session']['old'])) {
 			return $_SESSION['kiernan_session']['old'][$key];
 		}
 
@@ -91,8 +90,7 @@ class Session {
 	 */
 	public static function get($key)
 	{
-		if ( ! self::has($key))
-		{
+		if (!self::has($key)) {
 			return null;
 		}
 
