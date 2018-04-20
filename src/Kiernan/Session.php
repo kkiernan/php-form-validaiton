@@ -8,14 +8,14 @@ class Session
 {
     /**
      * The singletone session instance.
-     * 
+     *
      * @var Session
      */
     private static $instance;
 
     /**
      * Return the singleton instance of the session class.
-     * 
+     *
      * @return Session
      */
     public static function create()
@@ -39,10 +39,10 @@ class Session
 
     /**
      * Flash some data to the session.
-     * 
+     *
      * @param string $key   The key to give the data.
      * @param mixed  $value The value to store.
-     * 
+     *
      * @return void
      */
     public static function flash($key, $value)
@@ -52,9 +52,9 @@ class Session
 
     /**
      * Retrieve old data from the session.
-     * 
+     *
      * @param string $key The key of the data to retrieve.
-     * 
+     *
      * @return mixed
      */
     public static function old($key = null)
@@ -76,9 +76,9 @@ class Session
 
     /**
      * Check that the session has a specific key.
-     * 
+     *
      * @param string $key The session key to check.
-     * 
+     *
      * @return boolean
      */
     public static function has($key)
@@ -88,9 +88,9 @@ class Session
 
     /**
      * Retrieve a value from the session.
-     * 
+     *
      * @param string $key The key of the session var to retrieve.
-     * 
+     *
      * @return mixed
      */
     public static function get($key)
@@ -104,7 +104,7 @@ class Session
 
     /**
      * Clear all kiernan_session data.
-     * 
+     *
      * @return void
      */
     public static function clear()
@@ -114,10 +114,10 @@ class Session
 
     /**
      * Throw an exception if an undefined method is called.
-     * 
+     *
      * @param string $name      The method name that was called.
      * @param array  $arguments The arguments provided.
-     * 
+     *
      * @return void
      */
     public function __call($name, $arguments)
@@ -127,15 +127,14 @@ class Session
 
     /**
      * Throw an exception if an undefined method is called from a static context.
-     * 
+     *
      * @param string $name      The method name that was called.
      * @param array  $arguments The arguments provided.
-     * 
+     *
      * @return void
      */
     public static function __callStatic($name, $arguments)
     {
         throw new BadMethodCallException("Method [$name] does not exist");
     }
-
 }
